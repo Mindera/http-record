@@ -51,8 +51,8 @@ httpRecord.record(options, function(session){
 
 Reference of the http-record methods:
 
-`record` - creates a new instance of http-record and starts the mitm proxy - returns a recursive session object
-`stop` - stops the mitm proxy - should always be called in the callback of the `record` method is called to stop 
+* `record` - creates a new instance of http-record and starts the mitm proxy - returns a recursive session object
+* `stop` - stops the mitm proxy - should always be called in the callback of the `record` method is called to stop
 the proxy and avoid un-wanted requests
 
 ### CLI
