@@ -3,6 +3,8 @@
 http-record is a high level module that works as a bridge over the [node-thin](https://github.com/runk/node-thin) 
 module to capture http records for future usage.
 
+> Note: this is a very raw hacky module that might and will probably break a lot.
+
 ## Install
 
 ```sh
@@ -17,16 +19,16 @@ It can be used via it's API by creating a new `http-record` instance and calling
 
 The first argument is an `options` object:
 
-`options.listenPort` - proxy listen port (default: 8001)
-`options.listenHost` - proxy listen host (default: 'localhost')
-`options.strictSSL` - requires ssl certificates be valid (default: false)
-`options.rejectUnauthorized` - reject clients with invalid ssl certificates (default: false)
+* `options.listenPort` - proxy listen port (default: 8001)
+* `options.listenHost` - proxy listen host (default: 'localhost')
+* `options.strictSSL` - requires ssl certificates be valid (default: false)
+* `options.rejectUnauthorized` - reject clients with invalid ssl certificates (default: false)
 
 The second argument is a `callback` to be executed after the proxy starts listening. It receives a `session` object 
 argument:
 
-`session.proxy` - proxy instance running
-`session.requests` - array with all the captured requests
+* `session.proxy` - proxy instance running
+* `session.requests` - array with all the captured requests
 
 Example:
 
