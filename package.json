@@ -22,7 +22,7 @@
     "proxy"
   ],
   "dependencies": {
-    "node-thin": "miguelcnf/node-thin"
+    "thin": "^0.1.4"
   },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
