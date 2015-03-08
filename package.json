@@ -22,7 +22,8 @@
     "proxy"
   ],
   "dependencies": {
-    "thin": "^0.1.4"
+    "thin": "^0.1.4",
+    "ws": "^0.7.1"
   },
   "devDependencies": {
     "grunt-cli": "^0.1.13",

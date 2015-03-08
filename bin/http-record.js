@@ -20,19 +20,21 @@ function recordCallback(session) {
         record.stop(session);
         
         if (session.requests.length > 0) {
-            saveRequests(session.requests, function () {
+            saveRequests(session.requests, function exit() {
                 process.exit();
             });
         } else {
             console.log('No requests captured.');
+            process.exit();
         }
     });
-
-    setInterval(function sessionRequests() {
-        if (session.requests) {
-            console.log(session.requests.length);
-        }
-    }, 5000);
 }
 
-record.record({}, recordCallback);
+
+var options = {
+    websocket: {
+        port: 8002
+    }
+};
+
+record.record(options, recordCallback);

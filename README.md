@@ -3,7 +3,7 @@
 http-record is a high level module that works as a bridge over the [node-thin](https://github.com/runk/node-thin) 
 module to capture http records for future usage.
 
-> Note: this is a very raw hacky module that might and will probably break a lot.
+> Note: this module is very raw - please open any issues.
 
 ## Install
 
@@ -19,16 +19,22 @@ It can be used via it's API by creating a new `http-record` instance and calling
 
 The first argument is an `options` object:
 
-* `options.listenPort` - proxy listen port (default: 8001)
-* `options.listenHost` - proxy listen host (default: 'localhost')
-* `options.strictSSL` - requires ssl certificates be valid (default: false)
-* `options.rejectUnauthorized` - reject clients with invalid ssl certificates (default: false)
+* `options.listenPort` - proxy listen port (default: `8001`)
+* `options.listenHost` - proxy listen host (default: `localhost`)
+* `options.strictSSL` - requires ssl certificates be valid (default: `false`)
+* `options.rejectUnauthorized` - reject clients with invalid ssl certificates (default: `false`)
+* `options.websocket` - enable basic websocket support (default: `false`)
+* `options.websocket.host` - websocket server listen host (default: `localhost`)
+* `options.websocket.port` - websocket server listen port (default: `8002`)
 
 The second argument is a `callback` to be executed after the proxy starts listening. It receives a `session` object 
 argument:
 
 * `session.proxy` - proxy instance running
-* `session.requests` - array with all the captured requests
+* `session.requests` - array with all the captured requests or `[]`
+* `session.websocket` - object with the running websocket details
+* `session.websocket.server` - instance of websocket server or `undefined`
+* `session.websocket.clients` - array with all the connected clients or `[]`
 
 Example:
 
@@ -52,8 +58,13 @@ httpRecord.record(options, function(session){
 Reference of the http-record methods:
 
 * `record` - creates a new instance of http-record and starts the mitm proxy - returns a recursive session object
-* `stop` - stops the mitm proxy - should always be called in the callback of the `record` method is called to stop
-the proxy and avoid un-wanted requests
+* `stop` - stops the mitm proxy - should always be called in the callback of the `record` method to stop the proxy 
+and avoid un-wanted requests
+
+### WebSockets
+
+If you enable websocket support `http-record` will expose a basic websocket server which will push all captured requests
+as stringified JSON objects to the connected clients.
 
 ### CLI
 
