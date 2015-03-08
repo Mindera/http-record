@@ -1,6 +1,6 @@
 {
   "name": "http-record",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Record http(s) sessions",
   "homepage": "TODO",
   "author": {
