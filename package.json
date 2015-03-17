@@ -1,6 +1,6 @@
 {
   "name": "http-record",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Record http(s) sessions",
   "homepage": "https://www.npmjs.com/package/http-record",
   "author": {
