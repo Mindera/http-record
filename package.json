@@ -2,7 +2,7 @@
   "name": "http-record",
   "version": "0.0.2",
   "description": "Record http(s) sessions",
-  "homepage": "TODO",
+  "homepage": "https://www.npmjs.com/package/http-record",
   "author": {
     "name": "Miguel Fonseca",
     "email": "miguel.fonseca@mindera.com"
